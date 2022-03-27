@@ -1,0 +1,53 @@
+{
+  "displayName": "Phaser TypeScript Vite",
+  "productName": "phaser-typescript-vite",
+  "version": "0.1.0",
+  "description": "A Phaser Typescript template with ESLint and other extra features out of the box",
+  "main": "index.html",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "serve": "vite preview",
+    "format": "prettier --write",
+    "assets": "node ./scripts/generateAssetsClass.js --dev",
+    "postinstall": "patch-package && yarn assets"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Dark-Magic-Studios/phaser-ts-vite-template"
+  },
+  "author": "David Morais <https://github.com/davidsmorais>",
+  "license": "MIT",
+  "dependencies": {
+    "@types/howler": "^2.1.2",
+    "@types/pino": "^6.0.1",
+    "bignumber.js": "^9.0.1",
+    "firebase": "^7.14.6",
+    "howler": "^2.2.0",
+    "patch-package": "^6.4.7",
+    "phaser": "^3.55.2",
+    "phaser-animated-tiles": "^2.0.2",
+    "phaser3-rex-plugins": "^1.1.17",
+    "pino": "^6.3.1"
+  },
+  "devDependencies": {
+    "@rollup/plugin-typescript": "^8.3.1",
+    "@typescript-eslint/eslint-plugin": "^2.34.0",
+    "@typescript-eslint/parser": "^5.16.0",
+    "camelcase": "^6.0.0",
+    "eslint": "^6.8.0",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-import-resolver-typescript": "^2.5.0",
+    "eslint-loader": "^4.0.2",
+    "eslint-plugin-import": "^2.25.4",
+    "eslint-plugin-prefer-arrow": "^1.2.1",
+    "eslint-plugin-prettier": "^3.1.3",
+    "prettier": "^2.0.5",
+    "shelljs": "^0.8.4",
+    "typescript": "^3.9.3",
+    "vite": "^2.8.6",
+    "vite-plugin-require-transform": "^1.0.1",
+    "webfontloader": "^1.6.28",
+    "xml2js": "^0.4.23"
+  }
+}

@@ -1,0 +1,16 @@
+#never commit node_modules
+node_modules
+
+#never commit packed files
+src/assets.ts
+dist
+
+.vscode/
+typings/
+
+# Node
+npm-debug.log
+/node_modules
+
+# environment
+.env

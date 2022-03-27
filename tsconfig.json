@@ -1,0 +1,26 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "module": "esnext",
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "importHelpers": true,
+    "target": "es2015",
+    "skipLibCheck": true,
+    "typeRoots": ["node_modules/@types", "./src/types"],
+    "baseUrl": "./",
+    "paths": {
+      "Utils/*": ["src/utils/*"],
+      "Sprites/*": ["src/sprites/*"],
+      "Types/*": ["types/*"],
+      "@/*": ["src/*"],
+      "assets": ["assets/*"]
+    },
+    "lib": ["es2018", "dom"],
+    "sourceMap": true
+  },
+  "include": ["src/**/*", "types/**/*", "test/**/*", "plugins/**/*"],
+  "exclude": ["node_modules", "src/assets.ts"]
+}
