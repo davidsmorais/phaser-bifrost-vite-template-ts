@@ -1,6 +1,8 @@
+import { render } from "react-dom";
 import * as WebFontLoader from "webfontloader";
 
 import { Donsole } from "./logger";
+import UIApp from "./ui";
 import App from "@/app";
 import * as Assets from "@/assets";
 
@@ -41,5 +43,6 @@ async function loadWebFont(): Promise<void> {
 window.onload = async (): Promise<void> => {
   new Donsole();
   await loadWebFont();
+  render(<UIApp />, document.getElementById("bifrost"));
   App.start();
 };

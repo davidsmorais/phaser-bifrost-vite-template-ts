@@ -10,6 +10,9 @@ module.exports = {
     "plugin:@typescript-eslint/recommended",
     "plugin:@typescript-eslint/recommended-requiring-type-checking",
     "prettier/@typescript-eslint",
+    "react-app",
+    "eslint:recommended",
+    "plugin:react/recommended",
   ],
   parser: "@typescript-eslint/parser",
   parserOptions: {
@@ -21,6 +24,8 @@ module.exports = {
     "prettier/prettier": ["warn"],
     "@typescript-eslint/camelcase": ["off"],
     "@typescript-eslint/no-explicit-any": ["off"],
+    "no-use-before-define": "off",
+    "@typescript-eslint/no-use-before-define": ["warn"],
     "prefer-arrow/prefer-arrow-functions": [
       "warn",
       {
