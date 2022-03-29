@@ -35,7 +35,13 @@ const App = (): JSX.Element => {
     config,
   });
   return (
-    <div>
+    <div
+      style={{
+        position: "absolute",
+        width: "100vw",
+        height: "100vh",
+      }}
+    >
       <BifrostContext.Provider value={{ state: null, props: null }}>
         <TitleRealm />
       </BifrostContext.Provider>
