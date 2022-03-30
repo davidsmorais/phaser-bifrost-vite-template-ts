@@ -1,28 +1,24 @@
-import { atom, useAtom } from "jotai";
 class Bifrost {
   config: RealmConfig;
   bus: Element;
   realmList: string[];
   state: any;
 
-  constructor(config: RealmConfig, stateAtom: any) {
+  constructor(config: RealmConfig) {
     this.config = config;
-    this.state = stateAtom;
     const { realms } = config;
     const realmList = Object.keys(realms);
     this.bus = document.createElement("bifrost-bridge");
   }
 
-  openRealm(name: string, callback) {
-    this.addEventListener(`bifrost-${name}`, callback);
-    this.dispatchEvent("bifrost-open", { detail: { name } });
+  openRealm(name: string, { state, props }) {
+    this.dispatchEvent("bifrost-open", { detail: { name, state, props } });
   }
 
   closeRealm(name: string) {
-    this.removeEventListener(`bifrost-${name}`, () =>
-      donsole.log("Closed Realm ", name)
-    );
+    this.dispatchEvent("bifrost-close", { detail: { name } });
   }
+
   /**
    * Add an event listener.
    */
