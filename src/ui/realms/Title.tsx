@@ -1,9 +1,17 @@
-import { useEffect } from "react";
 import useBifrost from "../hooks/useBifrost";
 
 const REALM_NAME = "Title";
+interface RealmProps {
+  onClose: () => void;
+}
+
+interface BifrostProps<T> {
+  props: T;
+  realmIsOpen: boolean;
+}
+
 const TitleRealm = () => {
-  const { props, realmIsOpen } = useBifrost({
+  const { props, realmIsOpen }: BifrostProps<RealmProps> = useBifrost({
     currentRealm: REALM_NAME,
   });
 
@@ -18,7 +26,7 @@ const TitleRealm = () => {
         alignItems: "center",
         flex: 1,
         border: "1px solid red",
-        height: "100%",
+        height: "calc(100%-2px)",
         justifyContent: "center",
       }}
     >
