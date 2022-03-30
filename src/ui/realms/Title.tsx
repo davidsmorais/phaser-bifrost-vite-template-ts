@@ -8,6 +8,7 @@ const TitleRealm = () => {
       currentRealm: REALM_NAME,
     });
 
+  console.log("title rendering", realmIsOpen, currentRealmState);
   if (!realmIsOpen) {
     return null;
   }

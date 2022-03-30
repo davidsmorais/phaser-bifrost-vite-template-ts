@@ -8,7 +8,7 @@ declare global {
     GAME_HEIGHT: number;
     DEBUG: boolean;
     donsole: any;
-    bifrost: any;
+    Bifrost: any;
   }
 }
 

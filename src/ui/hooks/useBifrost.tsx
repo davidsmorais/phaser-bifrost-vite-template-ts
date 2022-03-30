@@ -1,5 +1,6 @@
 import Bifrost from "@/Bifrost";
 import { atom, useAtom } from "jotai";
+import { useMemo } from "react";
 
 const realmStateAtom = atom({});
 const realmPropsAtom = atom({});
@@ -11,9 +12,6 @@ const useBifrost = ({
   config?: RealmConfig;
   currentRealm?: string;
 }) => {
-  if (!window.bifrost && config) {
-    window.bifrost = new Bifrost(config);
-  }
   const realms = config?.realms ?? {};
   const [realmsState, setRealmsState] = useAtom(realmStateAtom);
   const [realmsProps, setRealmsProps] = useAtom(realmPropsAtom);
@@ -26,23 +24,6 @@ const useBifrost = ({
         open: true,
       },
     });
-    window.bifrost.openRealm(realmName, (props, state) => {
-      setRealmsProps({
-        ...realmsProps,
-        [realmName || currentRealm]: {
-          ...(realmsProps[realmName || currentRealm] || {}),
-          props,
-          state,
-        },
-      });
-      setRealmsState({
-        ...realmsState,
-        [realmName || currentRealm]: {
-          ...(realmsState[realmName || currentRealm] || {}),
-          state,
-        },
-      });
-    });
   };
 
   const closeRealm = (realmName?: string) => {
@@ -53,13 +34,27 @@ const useBifrost = ({
         open: true,
       },
     });
-    window.bifrost.closeRealm(realmName);
   };
 
-  const realmIsOpen = realmsState?.[currentRealm]?.open ?? false;
+  if (!window.Bifrost && config) {
+    window.Bifrost = new Bifrost(config, realmStateAtom);
+    window.Bifrost.bus.addEventListener("bifrost-open", ({ detail }: any) => {
+      const { name } = detail;
+
+      openRealm(name);
+    });
+  }
+
+  const currentRealmState = useMemo(
+    () => realmsState[currentRealm],
+    [realmsState]
+  );
+  const realmIsOpen = currentRealmState?.open ?? false;
   const realmList = Object.keys(realms);
-  const currentRealmProps = realmsProps[currentRealm];
-  const currentRealmState = realmsState[currentRealm];
+  const currentRealmProps = useMemo(
+    () => realmsProps[currentRealm],
+    [realmsProps]
+  );
 
   return {
     realmList,

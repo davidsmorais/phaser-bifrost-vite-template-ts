@@ -1,6 +1,7 @@
 export default class TitleScene extends Phaser.Scene {
   public init(): void {
-    this.startGame();
+    // this.startGame();
+    window.Bifrost.openRealm("Title", { state: { open: true } });
   }
 
   public preload(): void {
