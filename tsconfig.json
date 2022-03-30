@@ -7,7 +7,7 @@
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "importHelpers": true,
-    "target": "es6",
+    "target": "es2020",
     "skipLibCheck": true,
     "typeRoots": ["node_modules/@types", "./src/types"],
     "baseUrl": "./",

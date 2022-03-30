@@ -1,8 +1,9 @@
 const path = require("path");
+import react from "@vitejs/plugin-react";
 import { defineConfig } from "vite";
 
 export default defineConfig({
-  plugins: [],
+  plugins: [react()],
   define: {
     DEBUG: true,
     GAME_HEIGHT: 1080,
@@ -22,6 +23,6 @@ export default defineConfig({
     outDir: "./dist",
     // Do not inline images and assets to avoid the phaser error
     // "Local data URIs are not supported"
-    assetsInlineLimit: 0
+    assetsInlineLimit: 0,
   },
 });
