@@ -1,21 +1,5 @@
+import Bifrost from "@/Bifrost";
 import { atom, useAtom } from "jotai";
-
-interface RealmConfig {
-  realms: {
-    [RealmName: string]: React.FC;
-  };
-  locales: {
-    [Language: string]: {
-      [RealmName: string]: {
-        [Key: string]: string;
-      };
-    };
-  };
-  dimensions: {
-    height: number;
-    width: number;
-  };
-}
 
 const realmStateAtom = atom({});
 const realmPropsAtom = atom({});
@@ -27,6 +11,9 @@ const useBifrost = ({
   config?: RealmConfig;
   currentRealm?: string;
 }) => {
+  if (!window.bifrost && config) {
+    window.bifrost = new Bifrost(config);
+  }
   const realms = config?.realms ?? {};
   const [realmsState, setRealmsState] = useAtom(realmStateAtom);
   const [realmsProps, setRealmsProps] = useAtom(realmPropsAtom);
@@ -39,6 +26,23 @@ const useBifrost = ({
         open: true,
       },
     });
+    window.bifrost.openRealm(realmName, (props, state) => {
+      setRealmsProps({
+        ...realmsProps,
+        [realmName || currentRealm]: {
+          ...(realmsProps[realmName || currentRealm] || {}),
+          props,
+          state,
+        },
+      });
+      setRealmsState({
+        ...realmsState,
+        [realmName || currentRealm]: {
+          ...(realmsState[realmName || currentRealm] || {}),
+          state,
+        },
+      });
+    });
   };
 
   const closeRealm = (realmName?: string) => {
@@ -49,6 +53,7 @@ const useBifrost = ({
         open: true,
       },
     });
+    window.bifrost.closeRealm(realmName);
   };
 
   const realmIsOpen = realmsState?.[currentRealm]?.open ?? false;

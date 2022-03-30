@@ -7,13 +7,7 @@ const TitleRealm = () => {
     useBifrost({
       currentRealm: REALM_NAME,
     });
-  console.log(
-    "🚀 ~ file: Title.tsx ~ line 8 ~ TitleRealm ~ currentRealmState",
-    currentRealmState
-  );
-  useEffect(() => {
-    openRealm();
-  }, []);
+
   if (!realmIsOpen) {
     return null;
   }
