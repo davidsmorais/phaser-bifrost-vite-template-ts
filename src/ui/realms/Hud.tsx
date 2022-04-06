@@ -5,8 +5,13 @@ interface RealmProps {
   onClose: () => void;
 }
 
+interface BifrostProps<T> {
+  props: T;
+  realmIsOpen: boolean;
+}
+
 const TitleRealm = () => {
-  const { props, realmIsOpen, t }: BifrostProps<RealmProps> = useBifrost({
+  const { props, realmIsOpen }: BifrostProps<RealmProps> = useBifrost({
     currentRealm: REALM_NAME,
   });
 
@@ -20,30 +25,27 @@ const TitleRealm = () => {
         flexDirection: "column",
         alignItems: "center",
         flex: 1,
-        height: "100vh",
+        border: "1px solid red",
+        height: "calc(100%-2px)",
         justifyContent: "center",
       }}
     >
       <h1 style={{ color: "white", fontSize: 64, fontFamily: "OldWizard" }}>
-        {t("title")}
+        Knight Game
       </h1>
-      <h3 style={{ color: "white", fontSize: 24, fontFamily: "OldWizard" }}>
-        {t("subtitle")}
-      </h3>
       <button
         style={{
-          marginTop: 32,
+          marginTop: 16,
           background: "transparent",
           boxShadow: "none",
           color: "white",
-          border: "1px solid white",
-          padding: 16,
+          border: "none",
           fontFamily: "OldWizard",
           fontSize: 14,
         }}
         onClick={props?.onClose}
       >
-        <h2>{t("newGame")}</h2>
+        <h2>New Game</h2>
       </button>
     </div>
   );

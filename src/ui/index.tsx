@@ -8,9 +8,10 @@ const config = {
   },
   locales: {
     en: {
-      "Title Scene": {
-        title: "Game Example",
+      Title: {
+        title: "Knight Game Example",
         subtitle: "Phaser + React Bifrost",
+        newGame: "New Game",
       },
     },
   },

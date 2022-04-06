@@ -14,3 +14,9 @@ interface RealmConfig {
     width: number;
   };
 }
+
+interface BifrostProps<T> {
+  props: T;
+  realmIsOpen: boolean;
+  t: (key: string) => string;
+}

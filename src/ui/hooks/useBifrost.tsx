@@ -72,6 +72,10 @@ const useBifrost = ({
     [realmsProps]
   );
 
+  const t = (key: string) => {
+    return window.Bifrost.translate(currentRealm, key);
+  };
+
   return {
     realmList,
     openRealm,
@@ -81,6 +85,7 @@ const useBifrost = ({
     setRealmsProps,
     setRealmsState,
     realmIsOpen,
+    t,
   };
 };
 
