@@ -1,4 +1,5 @@
 import TitleRealm from "./realms/Title";
+import HudRealm from "./realms/Hud";
 import useBifrost from "./hooks/useBifrost";
 
 const config = {
@@ -17,6 +18,7 @@ const config = {
   },
   realms: {
     Title: TitleRealm,
+    Hud: HudRealm,
   },
 };
 
@@ -33,6 +35,7 @@ const App = () => {
       }}
     >
       <TitleRealm />
+      <HudRealm />
     </div>
   );
 };

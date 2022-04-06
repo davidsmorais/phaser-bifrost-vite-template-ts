@@ -1,16 +1,12 @@
 import useBifrost from "../hooks/useBifrost";
 
-const REALM_NAME = "Title";
+const REALM_NAME = "Hud";
 interface RealmProps {
-  onClose: () => void;
+  width: number;
+  pressBtn: () => void;
 }
 
-interface BifrostProps<T> {
-  props: T;
-  realmIsOpen: boolean;
-}
-
-const TitleRealm = () => {
+const HudRealm = () => {
   const { props, realmIsOpen }: BifrostProps<RealmProps> = useBifrost({
     currentRealm: REALM_NAME,
   });
@@ -22,33 +18,34 @@ const TitleRealm = () => {
     <div
       style={{
         display: "flex",
-        flexDirection: "column",
+        flexDirection: "row",
         alignItems: "center",
+        justifyContent: "space-between",
         flex: 1,
         border: "1px solid red",
-        height: "calc(100%-2px)",
-        justifyContent: "center",
+        width: "calc(100% - 120px)",
+        background: "transparent",
       }}
     >
-      <h1 style={{ color: "white", fontSize: 64, fontFamily: "OldWizard" }}>
-        Knight Game
-      </h1>
-      <button
+      <span
         style={{
-          marginTop: 16,
-          background: "transparent",
-          boxShadow: "none",
-          color: "white",
-          border: "none",
-          fontFamily: "OldWizard",
-          fontSize: 14,
+          width: `${props.width}%`,
+          background: "red",
+          border: "1px solid black",
+          transition: "width 0.5s ease-in",
+          height: 32,
         }}
-        onClick={props?.onClose}
+      />
+      <div
+        onClick={props.pressBtn}
+        style={{
+          color: "white",
+        }}
       >
-        <h2>New Game</h2>
-      </button>
+        Damage
+      </div>
     </div>
   );
 };
 
-export default TitleRealm;
+export default HudRealm;

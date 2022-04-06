@@ -40,20 +40,20 @@ const useBifrost = ({
     window.Bifrost = new Bifrost(config);
     window.Bifrost.bus.addEventListener("bifrost-open", ({ detail }: any) => {
       const { name, state, props } = detail;
-      openRealm(name);
       if (state) {
         setRealmsState({
           ...realmsState,
           [name]: state,
         });
       }
-      if (props)
-        [
-          setRealmsProps({
-            ...realmsProps,
-            [name]: props,
-          }),
-        ];
+      if (props) {
+        console.log("Has props", props, name);
+        setRealmsProps({
+          ...realmsProps,
+          [name]: props,
+        });
+      }
+      openRealm(name);
     });
     window.Bifrost.bus.addEventListener("bifrost-close", ({ detail }: any) => {
       const { name } = detail;

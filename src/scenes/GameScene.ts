@@ -11,9 +11,8 @@ export default class GameScene extends Phaser.Scene {
   player: Knight;
   spheres?: number;
   gates: Array<{ sprite: Phaser.GameObjects.Sprite; obj: any }>;
-  sfxAudioSprites:
-    | Phaser.Sound.WebAudioSound
-    | Phaser.Sound.HTML5AudioSound = null;
+  sfxAudioSprites: Phaser.Sound.WebAudioSound | Phaser.Sound.HTML5AudioSound =
+    null;
   origin: {
     x: number;
     y: number;
@@ -104,5 +103,14 @@ export default class GameScene extends Phaser.Scene {
     this.cameras.main.fadeIn(1500);
     this.cameras.main.zoomTo(4);
     this.cameras.main.startFollow(this.player.sprite);
+
+    window.Bifrost.openRealm("Hud", {
+      props: {
+        width: (this.player.stats.hp * 100) / this.player.stats.maxHp,
+        pressBtn: () => {
+          this.player.stats.hp -= 25;
+        },
+      },
+    });
   }
 }

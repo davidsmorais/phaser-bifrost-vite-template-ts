@@ -17,6 +17,9 @@ interface RealmConfig {
 
 interface BifrostProps<T> {
   props: T;
+  state: {
+    [stateKey: string]: any;
+  };
   realmIsOpen: boolean;
   t: (key: string) => string;
 }
