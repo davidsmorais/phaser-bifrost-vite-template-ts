@@ -104,12 +104,20 @@ export default class GameScene extends Phaser.Scene {
     this.cameras.main.zoomTo(4);
     this.cameras.main.startFollow(this.player.sprite);
 
+    const loseHpCallback = () => {
+      console.log("Press btn");
+      this.player.stats.hp -= 25;
+      window.Bifrost.updateRealm("Hud", {
+        props: {
+          width: (this.player.stats.hp * 100) / this.player.stats.maxHp,
+          pressBtn: loseHpCallback,
+        },
+      });
+    };
     window.Bifrost.openRealm("Hud", {
       props: {
         width: (this.player.stats.hp * 100) / this.player.stats.maxHp,
-        pressBtn: () => {
-          this.player.stats.hp -= 25;
-        },
+        pressBtn: loseHpCallback,
       },
     });
   }

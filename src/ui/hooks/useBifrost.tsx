@@ -15,6 +15,7 @@ const useBifrost = ({
   const realms = config?.realms ?? {};
   const [realmsState, setRealmsState] = useAtom(realmStateAtom);
   const [realmsProps, setRealmsProps] = useAtom(realmPropsAtom);
+  console.log("🚀 ~ file: useBifrost.tsx ~ line 18 ~ realmsProps", realmsProps);
 
   const openRealm = (realmName?: string) => {
     setRealmsState({
@@ -58,6 +59,17 @@ const useBifrost = ({
     window.Bifrost.bus.addEventListener("bifrost-close", ({ detail }: any) => {
       const { name } = detail;
       closeRealm(name);
+    });
+
+    window.Bifrost.bus.addEventListener("bifrost-update", ({ detail }: any) => {
+      const { name, props } = detail;
+      console.log("Updating realm", name, props);
+      if (props) {
+        setRealmsProps({
+          ...realmsProps,
+          [name]: props,
+        });
+      }
     });
   }
 

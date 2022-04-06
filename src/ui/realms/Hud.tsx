@@ -10,6 +10,7 @@ const HudRealm = () => {
   const { props, realmIsOpen }: BifrostProps<RealmProps> = useBifrost({
     currentRealm: REALM_NAME,
   });
+  console.log("🚀 ~ file: Hud.tsx ~ line 11 ~ HudRealm ~ props", props);
 
   if (!realmIsOpen) {
     return null;

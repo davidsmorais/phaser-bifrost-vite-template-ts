@@ -28,6 +28,10 @@ class Bifrost {
     this.dispatchEvent("bifrost-open", { detail: { name, state, props } });
   }
 
+  updateRealm(name: string, { props }) {
+    this.dispatchEvent("bifrost-update", { detail: { name, props } });
+  }
+
   closeRealm(name: string) {
     this.dispatchEvent("bifrost-close", { detail: { name } });
   }
