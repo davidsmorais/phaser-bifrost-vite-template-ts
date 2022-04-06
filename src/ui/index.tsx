@@ -1,5 +1,6 @@
 import TitleRealm from "./realms/Title";
 import HudRealm from "./realms/Hud";
+import GameOverRealm from "./realms/GameOver";
 import useBifrost from "./hooks/useBifrost";
 
 const config = {
@@ -13,6 +14,13 @@ const config = {
         title: "Knight Game Example",
         subtitle: "Phaser + React Bifrost",
         newGame: "New Game",
+      },
+      Hud: {
+        damage: "Damage",
+      },
+      GameOver: {
+        gameOver: "Game Over",
+        restart: "Restart Game",
       },
     },
   },
@@ -36,6 +44,7 @@ const App = () => {
     >
       <TitleRealm />
       <HudRealm />
+      <GameOverRealm />
     </div>
   );
 };

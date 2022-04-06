@@ -21,6 +21,15 @@ With ESLint & Prettier
 - React UI integration (React Bifrost)
 - Animated tiles plugin
 
+### React Bifrost Examples
+This template includes three examples for using React Bifrost to build your UI with React.
+- Title Realm
+  - Simple menu with buttons that starts the Phaser game.
+- Hud Realm
+  - Communicates back and forth between React & Phaser to show the HP meter
+- Game Over
+  - Restarts the game
+
 ## Developing & Building
 ### Setup
 

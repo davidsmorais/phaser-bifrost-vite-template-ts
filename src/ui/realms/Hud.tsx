@@ -7,11 +7,9 @@ interface RealmProps {
 }
 
 const HudRealm = () => {
-  const { props, realmIsOpen }: BifrostProps<RealmProps> = useBifrost({
+  const { props, realmIsOpen, t }: BifrostProps<RealmProps> = useBifrost({
     currentRealm: REALM_NAME,
   });
-  console.log("🚀 ~ file: Hud.tsx ~ line 11 ~ HudRealm ~ props", props);
-
   if (!realmIsOpen) {
     return null;
   }
@@ -43,7 +41,7 @@ const HudRealm = () => {
           color: "white",
         }}
       >
-        Damage
+        {t("damage")}
       </div>
     </div>
   );

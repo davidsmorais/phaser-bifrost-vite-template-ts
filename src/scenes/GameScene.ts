@@ -17,6 +17,7 @@ export default class GameScene extends Phaser.Scene {
     x: number;
     y: number;
   };
+  isGameOver: boolean;
   sys: any;
 
   public preload(): void {
@@ -120,5 +121,21 @@ export default class GameScene extends Phaser.Scene {
         pressBtn: loseHpCallback,
       },
     });
+  }
+
+  public update(): void {
+    if (this.player.stats.hp <= 0 && !this.isGameOver) {
+      this.isGameOver = true;
+      this.lights.setAmbientColor(0x000);
+      window.Bifrost.closeRealm("Hud");
+      window.Bifrost.openRealm("GameOver", {
+        props: {
+          restartGame: () => {
+            this.scene.start("GameScene");
+            window.Bifrost.closeRealm("GameOver");
+          },
+        },
+      });
+    }
   }
 }
