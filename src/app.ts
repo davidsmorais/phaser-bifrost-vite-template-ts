@@ -3,7 +3,6 @@ import * as Phaser from "phaser";
 import BootScene from "@/scenes/BootScene";
 import GameScene from "@/scenes/GameScene";
 import TitleScene from "@/scenes/TitleScene";
-import Dimensions from "Utils/Dimensions";
 
 export default class App extends Phaser.Game {
   public static start(): App {

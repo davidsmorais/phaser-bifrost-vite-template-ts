@@ -1,4 +1,4 @@
-import useBifrost from "../hooks/useBifrost";
+import { useBifrost } from "react-bifrost";
 
 const REALM_NAME = "GameOver";
 interface RealmProps {

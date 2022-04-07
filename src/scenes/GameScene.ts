@@ -18,7 +18,7 @@ export default class GameScene extends Phaser.Scene {
     y: number;
   };
   isGameOver: boolean;
-  sys: any;
+  declare sys: any;
 
   public preload(): void {
     this.load.scenePlugin(

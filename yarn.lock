@@ -3888,8 +3888,8 @@ quick-format-unescaped@^4.0.3:
   integrity sha512-tYC1Q1hgyRuHgloV/YXs2w15unPVh8qfu/qCTfhTYamaw7fyhumKa2yGpdSo87vY32rIclj+4fWYQXUMs9EHvg==
 
 "react-bifrost@https://github.com/Dark-Magic-Studios/react-bifrost":
-  version "1.0.0"
-  resolved "https://github.com/Dark-Magic-Studios/react-bifrost#25e5375ccbd8befe83986688932507538d026b08"
+  version "1.0.1"
+  resolved "https://github.com/Dark-Magic-Studios/react-bifrost#b95d4c49a392e7cb6f6c5ab0adf3d3726f4576b0"
 
 react-dom@^18.0.0:
   version "18.0.0"
