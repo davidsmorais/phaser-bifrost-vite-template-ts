@@ -1,7 +1,7 @@
 import TitleRealm from "./realms/Title";
 import HudRealm from "./realms/Hud";
 import GameOverRealm from "./realms/GameOver";
-import {useBifrost} from "react-bifrost";
+import { useBifrost } from "react-bifrost";
 
 const config = {
   dimensions: {
@@ -31,7 +31,7 @@ const config = {
 };
 
 const App = () => {
-  const { state, props } = useBifrost({
+  useBifrost({
     config,
   });
   return (
