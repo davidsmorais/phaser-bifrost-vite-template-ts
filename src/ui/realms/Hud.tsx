@@ -1,4 +1,4 @@
-import { useBifrost } from "react-bifrost";
+import { useBifrost } from "dm-react-bifrost";
 
 const REALM_NAME = "Hud";
 interface RealmProps {

@@ -2248,6 +2248,11 @@ dir-glob@^3.0.1:
   dependencies:
     path-type "^4.0.0"
 
+dm-react-bifrost@^1.0.5:
+  version "1.0.5"
+  resolved "https://registry.yarnpkg.com/dm-react-bifrost/-/dm-react-bifrost-1.0.5.tgz#1b42d18184fdadf516a33a31bcb9e38113f2469c"
+  integrity sha512-Hp78DX58LSNFUpcH7im7IZgF93XLPb8npLgI3VPNdbqweknWs/Kk3j3X5NaA6vcfajycoD2v3HlTcsrqgHbmeg==
+
 doctrine@^2.1.0:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/doctrine/-/doctrine-2.1.0.tgz#5cd01fc101621b42c4cd7f5d1a66243716d3f39d"
@@ -3956,10 +3961,6 @@ quick-format-unescaped@^4.0.3:
   version "4.0.4"
   resolved "https://registry.yarnpkg.com/quick-format-unescaped/-/quick-format-unescaped-4.0.4.tgz#93ef6dd8d3453cbc7970dd614fad4c5954d6b5a7"
   integrity sha512-tYC1Q1hgyRuHgloV/YXs2w15unPVh8qfu/qCTfhTYamaw7fyhumKa2yGpdSo87vY32rIclj+4fWYQXUMs9EHvg==
-
-"react-bifrost@https://github.com/Dark-Magic-Studios/react-bifrost":
-  version "1.0.1"
-  resolved "https://github.com/Dark-Magic-Studios/react-bifrost#b95d4c49a392e7cb6f6c5ab0adf3d3726f4576b0"
 
 react-dom@^18.0.0:
   version "18.0.0"

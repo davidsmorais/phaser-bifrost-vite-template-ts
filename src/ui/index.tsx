@@ -1,7 +1,7 @@
 import TitleRealm from "./realms/Title";
 import HudRealm from "./realms/Hud";
 import GameOverRealm from "./realms/GameOver";
-import { useBifrost } from "react-bifrost";
+import { useBifrost } from "dm-react-bifrost";
 
 const config = {
   dimensions: {
@@ -27,6 +27,7 @@ const config = {
   realms: {
     Title: TitleRealm,
     Hud: HudRealm,
+    GameOver: GameOverRealm,
   },
 };
 

@@ -20,6 +20,7 @@
   "license": "MIT",
   "dependencies": {
     "bignumber.js": "^9.0.1",
+    "dm-react-bifrost": "^1.0.5",
     "firebase": "^9.6.10",
     "howler": "^2.2.0",
     "jotai": "^1.6.2",
@@ -29,7 +30,6 @@
     "phaser3-rex-plugins": "^1.1.17",
     "pino": "^7.9.2",
     "react": "^18.0.0",
-    "react-bifrost": "https://github.com/Dark-Magic-Studios/react-bifrost",
     "react-dom": "^18.0.0"
   },
   "devDependencies": {

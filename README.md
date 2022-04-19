@@ -3,6 +3,7 @@
 ![Phaser](http://i.imgur.com/9M26w5m.png)
 ![TypeScript](http://i.imgur.com/5MWne89.png)
 ![Vite](https://seeklogo.com/images/V/vite-logo-BFD4283991-seeklogo.com.png)
+![React Bifrost](https://github.com/Dark-Magic-Studios/react-bifrost/raw/master/docs/logo.png)
 
 
 Phaser + React Bifrost + Vite + TypeScript  Stack
