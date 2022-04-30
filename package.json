@@ -23,7 +23,7 @@
     "dm-react-bifrost": "^1.0.5",
     "firebase": "^9.6.10",
     "howler": "^2.2.0",
-    "jotai": "^1.6.2",
+    "jotai": "^1.6.3",
     "patch-package": "^6.4.7",
     "phaser": "^3.55.2",
     "phaser-animated-tiles": "^2.0.2",
