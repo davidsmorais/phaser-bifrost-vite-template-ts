@@ -21,7 +21,7 @@
   "dependencies": {
     "bignumber.js": "^9.0.1",
     "dm-react-bifrost": "^1.0.5",
-    "firebase": "^9.6.10",
+    "firebase": "^9.6.11",
     "howler": "^2.2.0",
     "jotai": "^1.6.2",
     "patch-package": "^6.4.7",
