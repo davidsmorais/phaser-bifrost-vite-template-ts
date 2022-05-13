@@ -1,16 +1,12 @@
-import HealthBar from "@/hud/HealthBar";
 import GameScene from "@/scenes/GameScene";
 import { Direction } from "@/types/direction";
 
 type PlayerStateKeys = keyof PlayerState;
 export default class Knight extends Phaser.GameObjects.Sprite {
   spriteName: string;
-  scene: GameScene;
+  declare scene: GameScene;
   sprite: Phaser.Physics.Arcade.Sprite;
   light: Phaser.GameObjects.Light;
-  hud: {
-    healthBar: HealthBar;
-  };
   keys: {
     arrowLeft: Phaser.Input.Keyboard.Key;
     arrowRight: Phaser.Input.Keyboard.Key;
@@ -71,13 +67,6 @@ export default class Knight extends Phaser.GameObjects.Sprite {
       arrowLeft: this.scene.input.keyboard.addKey("LEFT"),
       arrowRight: this.scene.input.keyboard.addKey("RIGHT"),
     };
-    this.hud = {
-      healthBar: new HealthBar(scene),
-    };
-    this.hud.healthBar.updateText(
-      (this.stats.hp as unknown) as string,
-      (this.stats.maxHp as unknown) as string
-    );
   }
 
   preUpdate(time, delta): void {
