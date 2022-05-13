@@ -20,7 +20,6 @@
   "license": "MIT",
   "dependencies": {
     "bignumber.js": "^9.0.1",
-    "firebase": "^9.6.10",
     "howler": "^2.2.0",
     "patch-package": "^6.4.7",
     "phaser": "^3.55.2",
