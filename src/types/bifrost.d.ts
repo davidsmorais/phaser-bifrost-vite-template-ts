@@ -1,6 +1,6 @@
 interface RealmConfig {
   realms: {
-    [RealmName: string]: React.FC;
+    [RealmName: string]: React.FC | ReactNode;
   };
   locales: {
     [Language: string]: {

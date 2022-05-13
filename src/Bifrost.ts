@@ -9,7 +9,7 @@ class Bifrost {
 
   constructor(config: RealmConfig) {
     this.config = config;
-    const { realms, locales } = config;
+    const { locales } = config;
     this.locales = Object.keys(locales);
     this.bus = document.createElement("bifrost-bridge");
     this.setLocale(this.locales[0]);
@@ -20,7 +20,7 @@ class Bifrost {
       this.locale = locale;
     } else {
       console.error("❗Bifrost Error❗ Locale not found 👉", locale);
-      console.info("⚠️ Available locales 👉", this.locales);
+      // console.info('⚠️ Available locales 👉', this.locales)
     }
   }
 
@@ -57,8 +57,12 @@ class Bifrost {
     this.bus.dispatchEvent(new CustomEvent(event, ...args));
   }
 
-  translate(scene: string, key: string): string {
-    return this.config.locales[this.locale][scene][key];
+  translate(key: string, scene?: string): string {
+    if (scene) {
+      return this.config.locales[this.locale][scene][key];
+    } else {
+      return `this.config.locales.[${this.locale}]` ?? key;
+    }
   }
 }
 
