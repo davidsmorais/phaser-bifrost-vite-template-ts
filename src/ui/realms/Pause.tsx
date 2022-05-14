@@ -1,16 +1,11 @@
-import useBifrost from "../hooks/useBifrost";
-
-const REALM_NAME = "Pause";
 interface RealmProps {
   onClose: () => void;
+  open: boolean;
+  t: (string) => string;
 }
 
-const PauseRealm = () => {
-  const { props, realmIsOpen, t }: BifrostProps<RealmProps> = useBifrost({
-    currentRealm: REALM_NAME,
-  });
-
-  if (!realmIsOpen) {
+const PauseRealm = ({ open, onClose, t }: RealmProps) => {
+  if (!open) {
     return null;
   }
   return (
@@ -38,7 +33,7 @@ const PauseRealm = () => {
           fontFamily: "OldWizard",
           fontSize: 14,
         }}
-        onClick={props?.onClose}
+        onClick={onClose}
       >
         <h2>{t("continue")}</h2>
       </button>

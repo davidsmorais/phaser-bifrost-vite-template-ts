@@ -2,8 +2,7 @@ import TitleRealm from "./realms/Title";
 import HudRealm from "./realms/Hud";
 import PauseRealm from "./realms/Pause";
 import GameOverRealm from "./realms/GameOver";
-import useBifrost from "./hooks/useBifrost";
-import { RecoilRoot } from "recoil";
+import BifrostContainer from "./BifrostContainer";
 
 const config = {
   dimensions: {
@@ -39,15 +38,6 @@ const config = {
 };
 
 const App = () => {
-  return (
-    <RecoilRoot>
-      <BifrostApp />
-    </RecoilRoot>
-  );
+  return <BifrostContainer config={config} />;
 };
-const BifrostApp = () => {
-  const { BifrostContainer } = useBifrost({ config });
-  return <BifrostContainer />;
-};
-
 export default App;

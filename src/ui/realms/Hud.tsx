@@ -4,13 +4,14 @@ const REALM_NAME = "Hud";
 interface RealmProps {
   width: number;
   pressBtn: () => void;
+  open: boolean;
 }
 
-const HudRealm = () => {
-  const { props, realmIsOpen, t }: BifrostProps<RealmProps> = useBifrost({
+const HudRealm = ({ width, open, pressBtn }: RealmProps) => {
+  const { t }: BifrostProps<RealmProps> = useBifrost({
     currentRealm: REALM_NAME,
   });
-  if (!realmIsOpen || !props) {
+  if (!open) {
     return null;
   }
   return (
@@ -28,7 +29,7 @@ const HudRealm = () => {
     >
       <span
         style={{
-          width: `${props.width}%`,
+          width: `${width}%`,
           background: "red",
           border: "1px solid black",
           transition: "width 0.5s ease-in",
@@ -36,7 +37,7 @@ const HudRealm = () => {
         }}
       />
       <div
-        onClick={props.pressBtn}
+        onClick={pressBtn}
         style={{
           color: "white",
         }}

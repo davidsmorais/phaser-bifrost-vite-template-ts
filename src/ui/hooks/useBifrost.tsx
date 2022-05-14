@@ -37,17 +37,14 @@ const useBifrost = ({
               open: true,
             },
           };
-          console.log("🚀 ~ file: useBifrost.tsx ~ line 33 ~ newRs", newRs);
           setRealmsState(newRs);
           const newP = {
             ...rp,
             [realm]: {
               ...(rp[realm] || {}),
               ...props,
-              open: true,
             },
           };
-          console.log("🚀 ~ file: useBifrost.tsx ~ line 33 ~ newRs", newRs);
           setRealmsProps(newP);
         } else {
           console.error(
@@ -108,22 +105,32 @@ const useBifrost = ({
     () => (currentRealm ? realmsState[currentRealm] : realmsState),
     [realmsState]
   );
-  const realmIsOpen = currentRealmState?.open ?? false;
-  const realmList = Object.keys(realms);
   const currentRealmProps = useMemo(
     () => (currentRealm ? realmsProps[currentRealm] : realmsProps),
     [realmsProps]
   );
+  const realmIsOpen = currentRealmState?.open ?? false;
+
+  const realmList = Object.keys(realms);
 
   const t = (key: string) => {
     return window.Bifrost.translate(key, currentRealm);
   };
 
-  const BifrostContainer = () => {
+  const _BifrostContainer = () => {
     const realms = config?.realms ?? {};
-    const renderRealms = Object.keys(realms).map((realm) =>
-      config.realms[realm]({})
-    );
+    const renderRealms = Object.keys(realms).map((realm) => {
+      const Realm = config.realms[realm];
+
+      return (
+        <Realm
+          key={realm}
+          {...realmsProps[realm]}
+          t={(key: string) => window.Bifrost.translate(key, realm)}
+          open={realmsState[realm]?.open}
+        />
+      );
+    });
 
     if (!window.Bifrost && config) {
       window.Bifrost = new Bifrost(config);
@@ -163,7 +170,7 @@ const useBifrost = ({
   };
 
   return {
-    BifrostContainer,
+    _BifrostContainer,
     realmList,
     openRealm,
     closeRealm,
