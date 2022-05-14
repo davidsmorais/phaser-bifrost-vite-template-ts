@@ -1,16 +1,11 @@
-import useBifrost from "../hooks/useBifrost";
-
-const REALM_NAME = "Hud";
 interface RealmProps {
   width: number;
   pressBtn: () => void;
   open: boolean;
+  t: (k: string) => string;
 }
 
-const HudRealm = ({ width, open, pressBtn }: RealmProps) => {
-  const { t }: BifrostProps<RealmProps> = useBifrost({
-    currentRealm: REALM_NAME,
-  });
+const HudRealm = ({ width, open, pressBtn, t }: RealmProps) => {
   if (!open) {
     return null;
   }

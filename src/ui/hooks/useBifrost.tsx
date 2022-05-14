@@ -117,21 +117,19 @@ const useBifrost = ({
     return window.Bifrost.translate(key, currentRealm);
   };
 
+  const renderRealms = Object.keys(realms).map((realm) => {
+    const Realm = config.realms[realm];
+
+    return (
+      <Realm
+        key={realm}
+        id={`Bifrost-${realm}`}
+        t={(key: string) => window.Bifrost.translate(key, realm)}
+        open={realmsState[realm]?.open}
+      />
+    );
+  });
   const _BifrostContainer = () => {
-    const realms = config?.realms ?? {};
-    const renderRealms = Object.keys(realms).map((realm) => {
-      const Realm = config.realms[realm];
-
-      return (
-        <Realm
-          key={realm}
-          {...realmsProps[realm]}
-          t={(key: string) => window.Bifrost.translate(key, realm)}
-          open={realmsState[realm]?.open}
-        />
-      );
-    });
-
     if (!window.Bifrost && config) {
       window.Bifrost = new Bifrost(config);
       window.Bifrost.bus.addEventListener("bifrost-open", ({ detail }: any) => {
