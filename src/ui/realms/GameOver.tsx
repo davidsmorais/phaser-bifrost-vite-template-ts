@@ -5,9 +5,6 @@ interface RealmProps {
 }
 
 const GameOverRealm = ({ open, restartGame, t }: RealmProps) => {
-  if (!open) {
-    return null;
-  }
   return (
     <div
       style={{
