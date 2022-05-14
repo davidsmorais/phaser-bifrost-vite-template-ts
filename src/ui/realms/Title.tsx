@@ -1,18 +1,10 @@
-import useBifrost from "../hooks/useBifrost";
-
-const REALM_NAME = "Title";
 interface RealmProps {
   onClose: () => void;
+  open: boolean;
+  t: (k: string) => string;
 }
 
-const TitleRealm = () => {
-  const { props, realmIsOpen, t }: BifrostProps<RealmProps> = useBifrost({
-    currentRealm: REALM_NAME,
-  });
-
-  if (!realmIsOpen) {
-    return null;
-  }
+const TitleRealm = ({ t, onClose }) => {
   return (
     <div
       style={{
@@ -41,7 +33,7 @@ const TitleRealm = () => {
           fontFamily: "OldWizard",
           fontSize: 14,
         }}
-        onClick={props?.onClose}
+        onClick={onClose}
       >
         <h2>{t("newGame")}</h2>
       </button>

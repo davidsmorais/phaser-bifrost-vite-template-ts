@@ -1,16 +1,11 @@
-import useBifrost from "../hooks/useBifrost";
-
-const REALM_NAME = "GameOver";
 interface RealmProps {
   restartGame: () => void;
+  open: boolean;
+  t: (k: string) => string;
 }
 
-const GameOverRealm = () => {
-  const { props, realmIsOpen, t }: BifrostProps<RealmProps> = useBifrost({
-    currentRealm: REALM_NAME,
-  });
-
-  if (!realmIsOpen) {
+const GameOverRealm = ({ open, restartGame, t }: RealmProps) => {
+  if (!open) {
     return null;
   }
   return (
@@ -38,7 +33,7 @@ const GameOverRealm = () => {
           fontFamily: "OldWizard",
           fontSize: 14,
         }}
-        onClick={props?.restartGame}
+        onClick={restartGame}
       >
         <h2>{t("restart")}</h2>
       </button>

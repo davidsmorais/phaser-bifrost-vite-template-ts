@@ -1,3 +1,6 @@
+import useBifrost from "../hooks/useBifrost";
+
+const REALM_NAME = "Hud";
 interface RealmProps {
   width: number;
   pressBtn: () => void;
@@ -5,10 +8,7 @@ interface RealmProps {
   t: (k: string) => string;
 }
 
-const HudRealm = ({ width, open, pressBtn, t }: RealmProps) => {
-  if (!open) {
-    return null;
-  }
+const HudRealm = ({ t, width, pressBtn }) => {
   return (
     <div
       style={{
@@ -16,6 +16,7 @@ const HudRealm = ({ width, open, pressBtn, t }: RealmProps) => {
         flexDirection: "row",
         alignItems: "center",
         justifyContent: "space-between",
+        position: "absolute",
         flex: 1,
         border: "1px solid red",
         width: "calc(100% - 120px)",

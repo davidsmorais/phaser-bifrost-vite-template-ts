@@ -5,9 +5,6 @@ interface RealmProps {
 }
 
 const PauseRealm = ({ open, onClose, t }: RealmProps) => {
-  if (!open) {
-    return null;
-  }
   return (
     <div
       style={{
