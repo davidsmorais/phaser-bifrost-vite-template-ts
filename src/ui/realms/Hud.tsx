@@ -10,7 +10,7 @@ const HudRealm = () => {
   const { props, realmIsOpen, t }: BifrostProps<RealmProps> = useBifrost({
     currentRealm: REALM_NAME,
   });
-  if (!realmIsOpen) {
+  if (!realmIsOpen || !props) {
     return null;
   }
   return (

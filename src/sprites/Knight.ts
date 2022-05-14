@@ -11,6 +11,7 @@ export default class Knight extends Phaser.GameObjects.Sprite {
     arrowLeft: Phaser.Input.Keyboard.Key;
     arrowRight: Phaser.Input.Keyboard.Key;
     space: Phaser.Input.Keyboard.Key;
+    esc: Phaser.Input.Keyboard.Key;
   };
   direction: Direction;
   stats: PlayerStats;
@@ -66,6 +67,7 @@ export default class Knight extends Phaser.GameObjects.Sprite {
       space: this.scene.input.keyboard.addKey("SPACE"),
       arrowLeft: this.scene.input.keyboard.addKey("LEFT"),
       arrowRight: this.scene.input.keyboard.addKey("RIGHT"),
+      esc: this.scene.input.keyboard.addKey("ESC"),
     };
   }
 
@@ -90,6 +92,17 @@ export default class Knight extends Phaser.GameObjects.Sprite {
       }
       if (this.keys.space.isDown && body.onFloor()) {
         this.jump();
+      }
+      if (this.keys.esc.isDown) {
+        this.scene.scene.pause();
+        window.Bifrost.openRealm("Pause", {
+          props: {
+            onClose: () => {
+              this.scene.scene.resume();
+              window.Bifrost.closeRealm("Pause");
+            },
+          },
+        });
       }
       if (this.keys.arrowLeft.isDown) {
         this.sprite.setVelocityX(-this.stats.baseSpeed);

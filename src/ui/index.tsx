@@ -1,5 +1,6 @@
 import TitleRealm from "./realms/Title";
 import HudRealm from "./realms/Hud";
+import PauseRealm from "./realms/Pause";
 import GameOverRealm from "./realms/GameOver";
 import useBifrost from "./hooks/useBifrost";
 import { RecoilRoot } from "recoil";
@@ -23,12 +24,17 @@ const config = {
         gameOver: "Game Over",
         restart: "Restart Game",
       },
+      Pause: {
+        pause: "Pause",
+        continue: "Continue",
+      },
     },
   },
   realms: {
     Title: TitleRealm,
     GameOver: GameOverRealm,
     Hud: HudRealm,
+    Pause: PauseRealm,
   },
 };
 
