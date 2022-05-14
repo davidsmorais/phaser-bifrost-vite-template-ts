@@ -21,46 +21,87 @@ const useBifrost = ({
 }) => {
   const realms = config?.realms ?? {};
   const [realmsState, setRealmsState] = useRecoilState(realmStateAtom);
-  console.log("🚀 ~ file: useBifrost.tsx ~ line 30 ~ realmsState", realmsState);
   const [realmsProps, setRealmsProps] = useRecoilState(realmPropsAtom);
   const openRealm = useRecoilCallback(
     ({ snapshot }) =>
-      async (realmName?: string) => {
+      async (realmName: string, state: any, props: any) => {
         const rs = await snapshot.getPromise(realmStateAtom);
+        const rp = await snapshot.getPromise(realmPropsAtom);
         const realm = realmName || currentRealm;
         if (realm) {
-          setRealmsState({
+          const newRs = {
             ...rs,
             [realm]: {
               ...(rs[realm] || {}),
+              ...state,
               open: true,
             },
-          });
+          };
+          console.log("🚀 ~ file: useBifrost.tsx ~ line 33 ~ newRs", newRs);
+          setRealmsState(newRs);
+          const newP = {
+            ...rp,
+            [realm]: {
+              ...(rp[realm] || {}),
+              ...props,
+              open: true,
+            },
+          };
+          console.log("🚀 ~ file: useBifrost.tsx ~ line 33 ~ newRs", newRs);
+          setRealmsProps(newP);
         } else {
           console.error(
             "❗Bifrost Error❗ openRealm failed 👉 currentRealm not set and realmName not passed"
           );
         }
       },
-    [realmStateAtom]
+    [realmStateAtom, realmPropsAtom, currentRealm]
   );
 
-  const closeRealm = (realmName?: string) => {
-    const realm = realmName || currentRealm;
-    if (realm) {
-      setRealmsState({
-        ...realmsState,
-        [realm]: {
-          ...(realmsState[realm] || {}),
-          open: false,
-        },
-      });
-    } else {
-      console.error(
-        "❗Bifrost Error❗ closeRealm failed 👉 currentRealm not set and realmName not passed"
-      );
-    }
-  };
+  const closeRealm = useRecoilCallback(
+    ({ snapshot }) =>
+      async (realmName?: string) => {
+        const realm = realmName || currentRealm;
+
+        if (realm) {
+          const rs = await snapshot.getPromise(realmStateAtom);
+          setRealmsState({
+            ...rs,
+            [realm]: {
+              ...(rs[realm] || {}),
+              open: false,
+            },
+          });
+        } else {
+          console.error(
+            "❗Bifrost Error❗ closeRealm failed 👉 currentRealm not set and realmName not passed"
+          );
+        }
+      },
+    [realmStateAtom, realmPropsAtom, currentRealm]
+  );
+
+  const updateRealmProps = useRecoilCallback(
+    ({ snapshot }) =>
+      async (realmName: string, props: any) => {
+        const realm = realmName || currentRealm;
+        if (realm) {
+          const rp = await snapshot.getPromise(realmPropsAtom);
+          setRealmsProps({
+            ...rp,
+            [realm]: {
+              ...(rp[realm] || {}),
+              ...props,
+            },
+          });
+        } else {
+          console.error(
+            "❗Bifrost Error❗ closeRealm failed 👉 currentRealm not set and realmName not passed"
+          );
+        }
+      },
+    [realmStateAtom, realmPropsAtom, currentRealm]
+  );
 
   const currentRealmState = useMemo(
     // eslint-disable-next-line @typescript-eslint/no-unsafe-return
@@ -88,19 +129,8 @@ const useBifrost = ({
       window.Bifrost = new Bifrost(config);
       window.Bifrost.bus.addEventListener("bifrost-open", ({ detail }: any) => {
         const { name, state, props } = detail;
-        if (state) {
-          setRealmsState({
-            ...realmsState,
-            [name]: state,
-          });
-        }
-        if (props) {
-          setRealmsProps({
-            ...realmsProps,
-            [name]: props,
-          });
-        }
-        openRealm(name);
+
+        openRealm(name, state, props);
       });
       window.Bifrost.bus.addEventListener(
         "bifrost-close",
@@ -114,12 +144,7 @@ const useBifrost = ({
         "bifrost-update",
         ({ detail }: any) => {
           const { name, props } = detail;
-          if (props) {
-            setRealmsProps({
-              ...realmsProps,
-              [name]: props,
-            });
-          }
+          updateRealmProps(name, props);
         }
       );
     }
@@ -142,6 +167,7 @@ const useBifrost = ({
     realmList,
     openRealm,
     closeRealm,
+    updateRealmProps,
     state: currentRealm ? currentRealmState : realmsState,
     props: currentRealm ? currentRealmProps : realmsProps,
     setRealmsProps,
