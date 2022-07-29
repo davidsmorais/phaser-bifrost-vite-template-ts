@@ -1,8 +1,4 @@
-import React from "react";
-
-import { RecoilRoot } from "recoil";
-
-import useBifrost from "./hooks/useBifrost";
+import { useBifrost } from "dm-react-bifrost";
 
 const BifrostApp = ({ config }: { config: RealmConfig }) => {
   const { renderRealms } = useBifrost({ config, init: true });
@@ -18,13 +14,4 @@ const BifrostApp = ({ config }: { config: RealmConfig }) => {
     </div>
   );
 };
-
-export const RecoilBifrostContainer = ({ config }: { config: RealmConfig }) => {
-  return (
-    <RecoilRoot>
-      <BifrostApp config={config} />
-    </RecoilRoot>
-  );
-};
-
-export default RecoilBifrostContainer;
+export default BifrostApp;

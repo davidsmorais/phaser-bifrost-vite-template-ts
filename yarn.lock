@@ -1718,6 +1718,11 @@ dir-glob@^3.0.1:
   dependencies:
     path-type "^4.0.0"
 
+dm-react-bifrost@^1.1.6:
+  version "1.1.6"
+  resolved "https://registry.yarnpkg.com/dm-react-bifrost/-/dm-react-bifrost-1.1.6.tgz#2a0f71b07cd7cb52876393f14924f506f3e8903b"
+  integrity sha512-HKGlptv3w039eGHMg+r8kh86hgQGPziSblmHaFTQ2NSpt11lArgu28QyXuYAhf+/F2q1fsuhH9cNaOYVigklog==
+
 doctrine@^2.1.0:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/doctrine/-/doctrine-2.1.0.tgz#5cd01fc101621b42c4cd7f5d1a66243716d3f39d"

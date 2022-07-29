@@ -1,6 +1,3 @@
-import useBifrost from "../hooks/useBifrost";
-
-const REALM_NAME = "Hud";
 interface RealmProps {
   width: number;
   pressBtn: () => void;

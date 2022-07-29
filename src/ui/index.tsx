@@ -1,8 +1,8 @@
+import { BifrostContainer } from "dm-react-bifrost";
 import TitleRealm from "./realms/Title";
 import HudRealm from "./realms/Hud";
 import PauseRealm from "./realms/Pause";
 import GameOverRealm from "./realms/GameOver";
-import BifrostContainer from "./BifrostContainer";
 
 const config = {
   dimensions: {
