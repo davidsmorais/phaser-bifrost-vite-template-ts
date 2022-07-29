@@ -3072,7 +3072,7 @@ p-try@^2.0.0:
   resolved "https://registry.yarnpkg.com/p-try/-/p-try-2.2.0.tgz#cb2868540e313d61de58fafbe35ce9004d5540e6"
   integrity sha512-R4nPAVTAU0B9D35/Gk3uJf/7XYbQcyohSKdvAxIRSNghFl4e71hVoGnBNQz9cWaXxO2I10KTC+3jMdvvoKw6dQ==
 
-papaparse@^5.3.1:
+papaparse@^5.3.2:
   version "5.3.2"
   resolved "https://registry.yarnpkg.com/papaparse/-/papaparse-5.3.2.tgz#d1abed498a0ee299f103130a6109720404fbd467"
   integrity sha512-6dNZu0Ki+gyV0eBsFKJhYr+MdQYAzFUGlBMNj3GNrmHxmz1lfRa24CjFObPXtjcetlOv5Ad299MhIK0znp3afw==
@@ -3161,15 +3161,15 @@ phaser-animated-tiles@^2.0.2:
   resolved "https://registry.yarnpkg.com/phaser-animated-tiles/-/phaser-animated-tiles-2.0.2.tgz#541f9ec3790de92ba11c662049a7234d6dde2f53"
   integrity sha512-tIlaBoG/zOTctsAJuqoJyMSRt4SDmGHPvyjp4OKhtk+f+mNDThoV46N+qkauGDSddsZ2w8le7Sv9M01hNI8mug==
 
-phaser3-rex-plugins@^1.1.17:
-  version "1.1.68"
-  resolved "https://registry.yarnpkg.com/phaser3-rex-plugins/-/phaser3-rex-plugins-1.1.68.tgz#8a20aa0c2dff290577d2f56f5f706b5cae13b738"
-  integrity sha512-E+uXHW/LVIywOu8g1vNBvtVmdYJeIZX6MrQmod8kYSJ5rdu90cCATvB3JdPED9o7lwa6jFmDiXAbVai7tSZovQ==
+phaser3-rex-plugins@^1.1.69:
+  version "1.1.70"
+  resolved "https://registry.yarnpkg.com/phaser3-rex-plugins/-/phaser3-rex-plugins-1.1.70.tgz#c7ad6c07b584509451c2453b80619c791a9742e2"
+  integrity sha512-IoDidWopctdYkrXrPHg4puOTHJ27+yymVmJuBuQDqFXxCpQenr7I2LPP9WcnOeMxJS9aPQVbF8lJHoMRpgbDcQ==
   dependencies:
     eventemitter3 "^3.1.2"
     handlebars "^4.7.7"
     js-yaml "^4.1.0"
-    papaparse "^5.3.1"
+    papaparse "^5.3.2"
     webfontloader "^1.6.28"
 
 phaser@^3.55.2:
