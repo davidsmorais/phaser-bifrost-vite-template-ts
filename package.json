@@ -25,7 +25,7 @@
     "patch-package": "^6.4.7",
     "phaser": "^3.55.2",
     "phaser-animated-tiles": "^2.0.2",
-    "phaser3-rex-plugins": "^1.1.69",
+    "phaser3-rex-plugins": "^1.1.71",
     "pino": "^7.9.2",
     "react": "^18.1.0",
     "react-bifrost": "https://github.com/Dark-Magic-Studios/react-bifrost",

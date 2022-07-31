@@ -3161,10 +3161,10 @@ phaser-animated-tiles@^2.0.2:
   resolved "https://registry.yarnpkg.com/phaser-animated-tiles/-/phaser-animated-tiles-2.0.2.tgz#541f9ec3790de92ba11c662049a7234d6dde2f53"
   integrity sha512-tIlaBoG/zOTctsAJuqoJyMSRt4SDmGHPvyjp4OKhtk+f+mNDThoV46N+qkauGDSddsZ2w8le7Sv9M01hNI8mug==
 
-phaser3-rex-plugins@^1.1.69:
-  version "1.1.70"
-  resolved "https://registry.yarnpkg.com/phaser3-rex-plugins/-/phaser3-rex-plugins-1.1.70.tgz#c7ad6c07b584509451c2453b80619c791a9742e2"
-  integrity sha512-IoDidWopctdYkrXrPHg4puOTHJ27+yymVmJuBuQDqFXxCpQenr7I2LPP9WcnOeMxJS9aPQVbF8lJHoMRpgbDcQ==
+phaser3-rex-plugins@^1.1.71:
+  version "1.1.72"
+  resolved "https://registry.yarnpkg.com/phaser3-rex-plugins/-/phaser3-rex-plugins-1.1.72.tgz#602f09a8a7a0d23bf25a340be6342e429bfbb544"
+  integrity sha512-08OUue1XhOClwtKt/6YlrBcrIt0ZSBo+gDT8nSdReatnnJUfnQB6uabKfL7LzLTaad5nVpPF/OpJ8Q/C/HDPlQ==
   dependencies:
     eventemitter3 "^3.1.2"
     handlebars "^4.7.7"
