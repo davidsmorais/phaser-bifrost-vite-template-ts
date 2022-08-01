@@ -30,7 +30,7 @@
     "react": "^18.1.0",
     "react-bifrost": "https://github.com/Dark-Magic-Studios/react-bifrost",
     "react-dom": "^18.1.0",
-    "recoil": "^0.7.3-alpha.2"
+    "recoil": "^0.7.4"
   },
   "devDependencies": {
     "@types/howler": "^2.1.2",
