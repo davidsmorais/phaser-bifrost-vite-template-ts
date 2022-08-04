@@ -26,7 +26,7 @@
     "phaser": "^3.55.2",
     "phaser-animated-tiles": "^2.0.2",
     "phaser3-rex-plugins": "^1.1.69",
-    "pino": "^7.9.2",
+    "pino": "^7.11.0",
     "react": "^18.1.0",
     "react-bifrost": "https://github.com/Dark-Magic-Studios/react-bifrost",
     "react-dom": "^18.1.0",
