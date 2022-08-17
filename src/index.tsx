@@ -1,4 +1,3 @@
-import React from "react";
 import { createRoot } from "react-dom/client";
 import * as WebFontLoader from "webfontloader";
 
@@ -43,8 +42,8 @@ async function loadWebFont(): Promise<void> {
 
 window.onload = async (): Promise<void> => {
   const root = createRoot(document.getElementById("bifrost"));
+  root.render(<UIApp />);
   new Donsole();
   await loadWebFont();
-  root.render(<UIApp />);
   App.start();
 };
