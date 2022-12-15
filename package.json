@@ -19,7 +19,7 @@
   "author": "David Morais <https://github.com/davidsmorais>",
   "license": "MIT",
   "dependencies": {
-    "bignumber.js": "^9.0.1",
+    "bignumber.js": "^9.1.0",
     "dm-react-bifrost": "^1.1.7",
     "howler": "^2.2.0",
     "patch-package": "^6.4.7",
