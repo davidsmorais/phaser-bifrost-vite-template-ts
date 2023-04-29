@@ -34,14 +34,14 @@ This template includes three examples for using React Bifrost to build your UI w
 ### Setup
 
 ```
-yarn
-yarn assets
-yarn dev
+pnpm
+pnpm run assets
+pnpm dev
 ```
 ### Generating Assets Auto Import
 
 ! If you use the auto generated assets :point_down: !
-Everytime you add something to your assets directory, you should run the `yarn assets` command to generate the auto import file.
+Everytime you add something to your assets directory, you should run the `pnpm run assets` command to generate the auto import file.
 ### Run live server
 
 ```

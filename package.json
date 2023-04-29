@@ -10,7 +10,7 @@
     "serve": "vite preview",
     "format": "prettier --write",
     "assets": "node ./scripts/generateAssetsClass.js --dev",
-    "postinstall": "patch-package && yarn assets"
+    "postinstall": "patch-package && pnpm run assets"
   },
   "repository": {
     "type": "git",
@@ -28,7 +28,6 @@
     "phaser3-rex-plugins": "^1.1.78",
     "pino": "^7.11.0",
     "react": "^18.2.0",
-    "react-bifrost": "https://github.com/Dark-Magic-Studios/react-bifrost",
     "react-dom": "^18.2.0",
     "recoil": "^0.7.5"
   },
